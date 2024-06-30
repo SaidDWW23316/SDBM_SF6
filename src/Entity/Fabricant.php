@@ -13,9 +13,6 @@ class Fabricant
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $id_fabricant = null;
-
     #[ORM\Column(length: 100)]
     private ?string $nom_fabricant = null;
 

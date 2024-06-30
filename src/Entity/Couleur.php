@@ -13,9 +13,6 @@ class Couleur
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $id_couleur = null;
-
     #[ORM\Column(length: 100)]
     private ?string $nom_couleur = null;
 

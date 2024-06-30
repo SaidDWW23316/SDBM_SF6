@@ -13,9 +13,6 @@ class Typebiere
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $id_type = null;
-
     #[ORM\Column(length: 100)]
     private ?string $nom_type = null;
 
