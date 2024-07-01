@@ -21,18 +21,6 @@ class Continent
         return $this->id;
     }
 
-    public function getIdContinent(): ?int
-    {
-        return $this->id_continent;
-    }
-
-    public function setIdContinent(int $id_continent): static
-    {
-        $this->id_continent = $id_continent;
-
-        return $this;
-    }
-
     public function getNomContinent(): ?string
     {
         return $this->nom_continent;
