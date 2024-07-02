@@ -1,3 +1,16 @@
 body {
-    background-color: skyblue;
+    background-image: url(./img/12167269.webp);
+    background-size: cover; /* Étire l'image pour couvrir toute la page */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    background-position: center; /* Centre l'image */
+    margin: 0;
+    height: 100vh; /* Assure que le body occupe toute la hauteur de la fenêtre */
+}
+
+h1 {
+    color: white;
+}
+
+label {
+    color: white;
 }
