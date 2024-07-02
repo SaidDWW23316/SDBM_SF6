@@ -3,14 +3,16 @@
 {% block title %}Continent index{% endblock %}
 
 {% block body %}
-    <h1>Continent index</h1>
 
-    <table class="table">
+{% block header %}{% endblock %}
+    <h1 class='my-5'>Liste des Continents</h1>
+
+    <table class="table table-dark">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom_continent</th>
-                <th>actions</th>
+                <th>Code</th>
+                <th>Continent</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,9 +20,9 @@
             <tr>
                 <td>{{ continent.id }}</td>
                 <td>{{ continent.nomContinent }}</td>
-                <td>
-                    <a href="{{ path('app_continent_show', {'id': continent.id}) }}">show</a>
-                    <a href="{{ path('app_continent_edit', {'id': continent.id}) }}">edit</a>
+                <td>                    
+                    <a class='btn btn-success' href="{{ path('app_continent_edit', {'id': continent.id}) }}"><i class="bi bi-pencil"></i></a>
+                    <a class='btn btn-danger' href="{{ path('app_continent_show', {'id': continent.id}) }}"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_continent_new') }}">Create new</a>
+    <a href="{{ path('app_continent_new') }}"><button class='btn btn-secondary'>Ajouter un continent</button></a>
 {% endblock %}

@@ -15,4 +15,15 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+    #[Route('/', name: 'continent')]
+    public function continent(): Response
+    {
+        return $this->render('continent/index.html.twig', [
+            'controller_name' => 'ContinentController',
+        ]);
+    }
+
+    
+
 }
