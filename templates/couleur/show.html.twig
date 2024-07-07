@@ -1,33 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Continent{% endblock %}
+{% block title %}Couleur{% endblock %}
 
 {% block body %}
 {% block header %}{% endblock %}
-    <h1 class='my-5'>Continent</h1>
-    <a href="{{ path('app_continent_index') }}">
+    <h1 class='my-5'>Couleur</h1>
+    <a href="{{ path('app_couleur_index') }}">
         <button class='btn btn-primary btn-sm'>Retour à la liste</button>
     </a><br><br>
     <table class="table">
         <tbody>
             <tr>
                 <th>Code</th>
-                <td>{{ continent.id }}</td>
+                <td>{{ couleur.id }}</td>
             </tr>
             <tr>
-                <th>Continent</th>
-                <td>{{ continent.nomContinent }}</td>
+                <th>Couleur</th>
+                <td>{{ couleur.nomCouleur }}</td>
             </tr>
         </tbody>
     </table>
 
-    {{ include('continent/_delete_form.html.twig') }}
+    {{ include('couleur/_delete_form.html.twig') }}
 
-    <br><a href="{{ path('app_continent_index') }}">
+    <br><a href="{{ path('app_couleur_index') }}">
         <button class='btn btn-primary btn-sm'>Retour à la liste</button>
     </a>
     <br><br>
-    <!--<a href="{{ path('app_continent_edit', {'id': continent.id}) }}">
+    <!--<a href="{{ path('app_couleur_edit', {'id': couleur.id}) }}">
         <button class='btn btn-success'>Edit</button>
     </a><br><br>-->
 
