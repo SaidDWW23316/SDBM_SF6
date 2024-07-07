@@ -21,18 +21,6 @@ class Fabricant
         return $this->id;
     }
 
-    public function getIdFabricant(): ?int
-    {
-        return $this->id_fabricant;
-    }
-
-    public function setIdFabricant(int $id_fabricant): static
-    {
-        $this->id_fabricant = $id_fabricant;
-
-        return $this;
-    }
-
     public function getNomFabricant(): ?string
     {
         return $this->nom_fabricant;
