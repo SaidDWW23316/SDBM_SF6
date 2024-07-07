@@ -21,17 +21,6 @@ class Couleur
         return $this->id;
     }
 
-    public function getIdCouleur(): ?string
-    {
-        return $this->id_couleur;
-    }
-
-    public function setIdCouleur(string $id_couleur): static
-    {
-        $this->id_couleur = $id_couleur;
-
-        return $this;
-    }
 
     public function getNomCouleur(): ?string
     {

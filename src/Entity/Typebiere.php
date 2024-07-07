@@ -21,18 +21,6 @@ class Typebiere
         return $this->id;
     }
 
-    public function getIdTypebiere(): ?int
-    {
-        return $this->id_typebiere;
-    }
-
-    public function setIdTypebiere(int $id_typebiere): static
-    {
-        $this->id_typebiere = $id_typebiere;
-
-        return $this;
-    }
-
     public function getNomTypebiere(): ?string
     {
         return $this->nom_typebiere;
