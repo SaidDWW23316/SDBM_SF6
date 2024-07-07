@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Fabricant{% endblock %}
+{% block title %}New Continent{% endblock %}
 
 {% block body %}
-    <h1>Create new Fabricant</h1>
-
-    {{ include('fabricant/_form.html.twig') }}
-
-    <a href="{{ path('app_fabricant_index') }}">back to list</a>
+    <h1 class='my-5'>Ajout d'une Fabricant</h1>
+        
+        {# {{ include('fabricant/_form.html.twig') }} #}
+    {{ form_start(form) }}
+    <a class='btn btn-primary btn-sm mb-3' href="{{ path('app_fabricant_index') }}">Retour à la liste</a>
+    {{ form_widget(form) }}
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button><br>
+    <a class='btn btn-primary btn-sm mt-3' href="{{ path('app_fabricant_index') }}">Retour à la liste</a>
+    {{ form_end(form) }}
 {% endblock %}
