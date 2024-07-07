@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Continent{% endblock %}
+{% block title %}New Type Bière{% endblock %}
 
 {% block body %}
-    <h1 class='my-5'>Ajout d'une Couleur</h1>
+    <h1 class='my-5'>Ajout d'un type de bière</h1>
         
-        {# {{ include('couleur/_form.html.twig') }} #}
+        {# {{ include('typebiere/_form.html.twig') }} #}
     {{ form_start(form) }}
-    <a class='btn btn-primary btn-sm mb-3' href="{{ path('app_couleur_index') }}">Retour à la liste</a>
+    <a class='btn btn-primary btn-sm mb-3' href="{{ path('app_typebiere_index') }}">Retour à la liste</a>
     {{ form_widget(form) }}
     <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button><br>
-    <a class='btn btn-primary btn-sm mt-3' href="{{ path('app_couleur_index') }}">Retour à la liste</a>
+    <a class='btn btn-primary btn-sm mt-3' href="{{ path('app_typebiere_index') }}">Retour à la liste</a>
     {{ form_end(form) }}
 {% endblock %}

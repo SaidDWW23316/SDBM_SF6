@@ -14,33 +14,33 @@ class Typebiere
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $nom_type = null;
+    private ?string $nom_typebiere = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdType(): ?int
+    public function getIdTypebiere(): ?int
     {
-        return $this->id_type;
+        return $this->id_typebiere;
     }
 
-    public function setIdType(int $id_type): static
+    public function setIdTypebiere(int $id_typebiere): static
     {
-        $this->id_type = $id_type;
+        $this->id_typebiere = $id_typebiere;
 
         return $this;
     }
 
-    public function getNomType(): ?string
+    public function getNomTypebiere(): ?string
     {
-        return $this->nom_type;
+        return $this->nom_typebiere;
     }
 
-    public function setNomType(string $nom_type): static
+    public function setNomTypebiere(string $nom_typebiere): static
     {
-        $this->nom_type = $nom_type;
+        $this->nom_typebiere = $nom_typebiere;
 
         return $this;
     }
