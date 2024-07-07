@@ -3,11 +3,17 @@
 {% block title %}Edit Fabricant{% endblock %}
 
 {% block body %}
-    <h1>Edit Fabricant</h1>
+    <h1 class='my-5'>Editer fabricant</h1>
+    
+    {# {{ include('fabricant/_form.html.twig', {'button_label': 'Modifier'}) }} #}
+    {{ form_start(form) }}
+    <a class='btn btn-primary btn-sm mb-3' href="{{ path('app_fabricant_index') }}">Retour à la liste</a>
+    {{ form_widget(form) }}
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button><br>
+    <a class='btn btn-primary btn-sm mt-3' href="{{ path('app_fabricant_index') }}">Retour à la liste</a>
+{{ form_end(form) }}
 
-    {{ include('fabricant/_form.html.twig', {'button_label': 'Update'}) }}
+    
 
-    <a href="{{ path('app_fabricant_index') }}">back to list</a>
-
-    {{ include('fabricant/_delete_form.html.twig') }}
+    <!--{{ include('fabricant/_delete_form.html.twig') }}-->
 {% endblock %}

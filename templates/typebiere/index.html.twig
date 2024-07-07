@@ -1,26 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Typebiere index{% endblock %}
+{% block title %}Continent index{% endblock %}
 
 {% block body %}
-    <h1>Typebiere index</h1>
 
-    <table class="table">
+{% block header %}{% endblock %}
+    <h1 class='my-5'>Liste des Couleurs</h1>
+
+    <table class="table table-dark">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom_type</th>
-                <th>actions</th>
+                <th>Code</th>
+                <th>Couleur</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for typebiere in typebieres %}
+        {% for couleur in couleurs %}
             <tr>
-                <td>{{ typebiere.id }}</td>
-                <td>{{ typebiere.nomType }}</td>
-                <td>
-                    <a href="{{ path('app_typebiere_show', {'id': typebiere.id}) }}">show</a>
-                    <a href="{{ path('app_typebiere_edit', {'id': typebiere.id}) }}">edit</a>
+                <td>{{ couleur.id }}</td>
+                <td>{{ couleur.nomCouleur }}</td>
+                <td>                    
+                    <a class='btn btn-success' href="{{ path('app_couleur_edit', {'id': couleur.id}) }}"><i class="bi bi-pencil"></i></a>
+                    <a class='btn btn-danger' href="{{ path('app_couleur_show', {'id': couleur.id}) }}"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_typebiere_new') }}">Create new</a>
+    <a href="{{ path('app_couleur_new') }}"><button class='btn btn-secondary'>Ajouter une couleur</button></a>
 {% endblock %}
