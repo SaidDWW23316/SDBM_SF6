@@ -10,8 +10,8 @@
             <tr>
                 <th>Code</th>
                 <th>Nom Article</th>
-                <th>Couleurs</th>
-                <th>Types</th>
+                <th>Couleur</th>
+                <th>Type</th>
                 <th>Marque</th>
                 <th>Prix d'achat</th>
                 <th>Volume</th>
@@ -24,7 +24,7 @@
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.nomArticle }}</td>
-                <td>{{ article.couleursId }}</td>
+                <td>{{ article.couleur ? article.couleur.nomCouleur : 'inconnue' }}</td>
                 <td>{{ article.typesId }}</td>
                 <td>{{ article.marquesId }}</td>
                 <td>{{ article.prixAchat }}</td>

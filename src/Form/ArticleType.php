@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Entity\Couleur;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +15,10 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('nom_article')
-            ->add('couleurs_id')
+            ->add('couleur', EntityType::class, [
+                'class' => Couleur::class,
+                'choice_label' => 'nom_couleur',
+            ])
             ->add('types_id')
             ->add('marques_id')
             ->add('prix_achat')
