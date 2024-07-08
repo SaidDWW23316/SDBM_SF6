@@ -2,18 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\CouleurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CouleurRepository::class)]
+#[ORM\Entity]
 class Couleur
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(type: 'string', length: 100)]
     private ?string $nom_couleur = null;
 
     public function getId(): ?int
@@ -21,16 +20,14 @@ class Couleur
         return $this->id;
     }
 
-
     public function getNomCouleur(): ?string
     {
         return $this->nom_couleur;
     }
 
-    public function setNomCouleur(string $nom_couleur): static
+    public function setNomCouleur(string $nom_couleur): self
     {
         $this->nom_couleur = $nom_couleur;
-
         return $this;
     }
 }

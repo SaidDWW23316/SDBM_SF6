@@ -17,8 +17,9 @@ class Article
     #[ORM\Column(length: 100)]
     private ?string $nom_article = null;
 
-    #[ORM\Column(type:"integer", nullable: true)]
-    private ?int $couleurs_id;
+    #[ORM\ManyToOne(targetEntity: Couleur::class)]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Couleur $couleurs;
 
     #[ORM\Column(type:"integer", nullable: true)]
     private ?int $types_id;
@@ -48,19 +49,17 @@ class Article
     public function setNomArticle(string $nom_article): static
     {
         $this->nom_article = $nom_article;
-
         return $this;
     }
 
-    public function getCouleursId(): ?int
+    public function getCouleur(): ?Couleur
     {
-        return $this->couleurs_id;
+        return $this->couleurs;
     }
 
-    public function setCouleursId(int $couleurs_id): static
+    public function setCouleur(?Couleur $couleur): static
     {
-        $this->couleurs_id = $couleurs_id;
-
+        $this->couleurs = $couleur;
         return $this;
     }
 
@@ -72,7 +71,6 @@ class Article
     public function setTypesId(int $types_id): static
     {
         $this->types_id = $types_id;
-
         return $this;
     }
 
@@ -84,7 +82,6 @@ class Article
     public function setMarquesId(int $marques_id): static
     {
         $this->marques_id = $marques_id;
-
         return $this;
     }
 
@@ -96,7 +93,6 @@ class Article
     public function setPrixAchat(string $prix_achat): static
     {
         $this->prix_achat = $prix_achat;
-
         return $this;
     }
 
@@ -108,7 +104,6 @@ class Article
     public function setVolume(int $volume): static
     {
         $this->volume = $volume;
-
         return $this;
     }
 
@@ -120,7 +115,6 @@ class Article
     public function setTitrage(string $titrage): static
     {
         $this->titrage = $titrage;
-
         return $this;
     }
 }
