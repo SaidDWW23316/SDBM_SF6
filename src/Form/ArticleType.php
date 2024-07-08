@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Couleur;
+use App\Entity\Typebiere;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +20,10 @@ class ArticleType extends AbstractType
                 'class' => Couleur::class,
                 'choice_label' => 'nom_couleur',
             ])
-            ->add('types_id')
+            ->add('type', EntityType::class, [
+                'class'=> Typebiere::class,
+                'choice_label'=> 'nom_typebiere',
+            ])
             ->add('marques_id')
             ->add('prix_achat')
             ->add('volume')

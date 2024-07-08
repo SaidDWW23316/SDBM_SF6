@@ -19,10 +19,11 @@ class Article
 
     #[ORM\ManyToOne(targetEntity: Couleur::class)]
     #[ORM\JoinColumn(nullable: true)]
-    private ?Couleur $couleurs;
+    private ?Couleur $couleurs = null;
 
-    #[ORM\Column(type:"integer", nullable: true)]
-    private ?int $types_id;
+    #[ORM\ManyToOne(targetEntity: Typebiere::class)]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Typebiere $types = null;
 
     #[ORM\Column]
     private ?int $marques_id = null;
@@ -63,14 +64,14 @@ class Article
         return $this;
     }
 
-    public function getTypesId(): ?int
+    public function getTypebiere(): ?Typebiere
     {
-        return $this->types_id;
+        return $this->types;
     }
 
-    public function setTypesId(int $types_id): static
+    public function setTypebiere(?Typebiere $typebiere): static
     {
-        $this->types_id = $types_id;
+        $this->types = $typebiere;
         return $this;
     }
 
