@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\FabricantRepository;
+use App\Repository\PaysRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: FabricantRepository::class)]
-class Fabricant
+#[ORM\Entity(repositoryClass: PaysRepository::class)]
+class Pays
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,12 +16,16 @@ class Fabricant
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $nom_fabricant = null;
+    private ?string $nom_pays = null;
+
+    #[ORM\ManyToOne(targetEntity: Continent::class, inversedBy:"pays")]
+    #[ORM\JoinColumn(nullable: true)]
+    private $continents;
 
     /**
      * @var Collection<int, Marque>
      */
-    #[ORM\OneToMany(targetEntity: Marque::class, mappedBy: 'fabricants')]
+    #[ORM\OneToMany(targetEntity: Marque::class, mappedBy: 'pays')]
     private Collection $marques;
 
     public function __construct()
@@ -34,15 +38,26 @@ class Fabricant
         return $this->id;
     }
 
-    public function getNomFabricant(): ?string
+    public function getNomPays(): ?string
     {
-        return $this->nom_fabricant;
+        return $this->nom_pays;
     }
 
-    public function setNomFabricant(string $nom_fabricant): static
+    public function setNomPays(string $nom_pays): static
     {
-        $this->nom_fabricant = $nom_fabricant;
+        $this->nom_pays = $nom_pays;
 
+        return $this;
+    }
+
+    public function getContinent(): ?Continent
+    {
+        return $this->continents;
+    }
+
+    public function setContinent(?Continent $continent): self
+    {
+        $this->continents = $continent;
         return $this;
     }
 
@@ -58,7 +73,7 @@ class Fabricant
     {
         if (!$this->marques->contains($marque)) {
             $this->marques->add($marque);
-            $marque->setFabricants($this);
+            $marque->setPays($this);
         }
 
         return $this;
@@ -68,8 +83,8 @@ class Fabricant
     {
         if ($this->marques->removeElement($marque)) {
             // set the owning side to null (unless already changed)
-            if ($marque->getFabricants() === $this) {
-                $marque->setFabricants(null);
+            if ($marque->getPays() === $this) {
+                $marque->setPays(null);
             }
         }
 

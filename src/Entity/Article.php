@@ -17,13 +17,13 @@ class Article
     #[ORM\Column(length: 100)]
     private ?string $nom_article = null;
 
-    #[ORM\ManyToOne(targetEntity: Couleur::class)]
+    #[ORM\ManyToOne(targetEntity: Couleur::class, inversedBy:"article")]
     #[ORM\JoinColumn(nullable: true)]
-    private ?Couleur $couleurs = null;
+    private $couleurs;
 
-    #[ORM\ManyToOne(targetEntity: Typebiere::class)]
+    #[ORM\ManyToOne(targetEntity: Typebiere::class, inversedBy:"article")]
     #[ORM\JoinColumn(nullable: true)]
-    private ?Typebiere $types = null;
+    private $type;
 
     #[ORM\Column]
     private ?int $marques_id = null;
@@ -66,12 +66,12 @@ class Article
 
     public function getTypebiere(): ?Typebiere
     {
-        return $this->types;
+        return $this->type;
     }
 
-    public function setTypebiere(?Typebiere $typebiere): static
+    public function setTypebiere(?Typebiere $typebiere): self
     {
-        $this->types = $typebiere;
+        $this->type = $typebiere;
         return $this;
     }
 

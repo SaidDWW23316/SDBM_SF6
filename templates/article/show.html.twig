@@ -17,11 +17,11 @@
             </tr>
             <tr>
                 <th>Couleurs_id</th>
-                <td>{{ article.couleursId }}</td>
+                <td>{{ article.couleur ? article.couleur.nomCouleur : 'indisponible' }}</td>
             </tr>
             <tr>
                 <th>Types_id</th>
-                <td>{{ article.typesId }}</td>
+                <td>{{ article.typebiere ? article.typebiere.nomTypebiere : 'indisponible' }}</td>
             </tr>
             <tr>
                 <th>Marques_id</th>
