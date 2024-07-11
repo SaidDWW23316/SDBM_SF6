@@ -20,7 +20,7 @@ class ArticleType extends AbstractType
                 'class' => Couleur::class,
                 'choice_label' => 'nom_couleur',
             ])
-            ->add('type', EntityType::class, [
+            ->add('typebiere', EntityType::class, [
                 'class'=> Typebiere::class,
                 'choice_label'=> 'nom_typebiere',
             ])
